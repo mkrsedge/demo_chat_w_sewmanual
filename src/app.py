@@ -28,7 +28,7 @@ llm = ChatOpenAI(
 def page1():
    
    st.title("Maker's Edge - Chat with Sewing Machine Manual")
-   pdf = "data/LU2-4400_4420_E-1_240626_212041.pdf"
+   pdf = "data\\LU2-4400_4420_E-1_240626_212041.pdf"
 
    st.write("Here you can chat with the manual!")
    query_text = st.text_input("Enter your question:", disabled=not pdf, key=0)
@@ -51,14 +51,12 @@ def page1():
 
       #embeddings
       store_name = pdf[8:-4]
-      if os.path.exists(f"{store_name}.pkl"):
-         with open(f"{store_name}.pkl", "rb") as f:
-            Vectorstore = FAISS.load_local("vectorstore", embeddings, allow_dangerous_deserialization=True)
+      if os.path.exists("vectorstore"):
+         Vectorstore = FAISS.load_local("vectorstore", embeddings, allow_dangerous_deserialization=True)
 
       else:
          Vectorstore = FAISS.from_texts(chunks, embedding=embeddings)
-         with open(f"{store_name}.pkl", "wb") as f:
-            Vectorstore.save_local("vectorstore")
+         Vectorstore.save_local("vectorstore")
 
 
       #user query
