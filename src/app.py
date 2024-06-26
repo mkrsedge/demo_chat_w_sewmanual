@@ -28,7 +28,7 @@ llm = ChatOpenAI(
 def page1():
    
    st.title("Maker's Edge - Chat with Sewing Machine Manual")
-   pdf = "data\\LU2-4400_4420_E-1_240626_212041.pdf"
+   pdf = "data//LU2-4400_4420_E-1_240626_212041.pdf"
 
    st.write("Here you can chat with the manual!")
    query_text = st.text_input("Enter your question:", disabled=not pdf, key=0)
