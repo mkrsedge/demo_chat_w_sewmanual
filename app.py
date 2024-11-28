@@ -27,8 +27,8 @@ llm = ChatOpenAI(
 
 def page1():
    
-   st.title("Maker's Edge - Chat with Sewing Machine Manual")
-   pdf = "data/LU2-4400_4420_E-1_240626_212041.pdf"
+   st.title("Maker's Edge - Chat with Operator Manual")
+   pdf = "data/mvp_pdf.pdf"
 
    st.write("Here you can chat with the manual!")
    query_text = st.text_input("Enter your question:", disabled=not pdf, key=0)
@@ -42,7 +42,7 @@ def page1():
          text += page.extract_text()
 
       text_splitter = RecursiveCharacterTextSplitter(
-         chunk_size = 1000,
+         chunk_size = 2000,
          chunk_overlap = 200,
          length_function = len
       )
