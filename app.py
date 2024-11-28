@@ -12,7 +12,7 @@ import pickle
 from dotenv import load_dotenv,find_dotenv
 load_dotenv(find_dotenv())
 
-api_key = os.environ.get("OPEN_AI_KEY")
+api_key = os.environ.get("OPENAI_API_KEY")
 
 embeddings = OpenAIEmbeddings(
    model = "text-embedding-ada-002",
