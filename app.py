@@ -13,7 +13,7 @@ from dotenv import load_dotenv,find_dotenv
 load_dotenv(find_dotenv())
 
 api_key = os.environ.get("OPENAI_API_KEY")
-print(api_key)
+
 embeddings = OpenAIEmbeddings(
    model = "text-embedding-ada-002",
    openai_api_key = api_key,
